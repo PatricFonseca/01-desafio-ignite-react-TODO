@@ -25,7 +25,10 @@ export function TaskList() {
 			title: newTaskTitle,
 			isComplete: false,
 		};
-		setTasks([...tasks, task]);
+
+		// Feito dessa forma, pois de acordo com https://pt-br.reactjs.org/docs/hooks-reference.html#functional-updates
+		// deve ser feito dessa forma para evitar possíveis problemas
+		setTasks((oldTask) => [...oldTask, task]);
 
 		setNewTaskTitle("");
 	}
